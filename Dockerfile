@@ -17,8 +17,8 @@ ADD config/redis.config /etc/redis/redis.tmp
 # nsis is for LSC credential package generation for Microsoft Windows targets
 #
 #
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get update > /dev/null && \
+    apt-get install -y > /dev/null \
       alien \
       autoconf \
       bison \
@@ -82,60 +82,60 @@ wget --no-check-certificate https://wald.intevation.org/frs/download.php/2351/op
     wget --no-check-certificate https://wald.intevation.org/frs/download.php/2363/greenbone-security-assistant-6.0.11.tar.gz && \
     wget --no-check-certificate https://wald.intevation.org/frs/download.php/2332/openvas-cli-1.4.4.tar.gz && \
     wget --no-check-certificate https://wald.intevation.org/frs/download.php/1975/openvas-smb-1.0.1.tar.gz && \
-    tar zxvfp openvas-libraries-8.0.8.tar.gz && \
-    tar zxvfp openvas-scanner-5.0.7.tar.gz && \
-    tar zxvfp openvas-manager-6.0.9.tar.gz && \
-    tar zxvfp greenbone-security-assistant-6.0.11.tar.gz && \
-    tar zxvfp openvas-cli-1.4.4.tar.gz && \
-    tar zxvfp openvas-smb-1.0.1.tar.gz && \
+    tar zxvfp openvas-libraries-8.0.8.tar.gz > /dev/null && \
+    tar zxvfp openvas-scanner-5.0.7.tar.gz > /dev/null && \
+    tar zxvfp openvas-manager-6.0.9.tar.gz > /dev/null && \
+    tar zxvfp greenbone-security-assistant-6.0.11.tar.gz > /dev/null && \
+    tar zxvfp openvas-cli-1.4.4.tar.gz > /dev/null && \
+    tar zxvfp openvas-smb-1.0.1.tar.gz > /dev/null && \
     cd openvas-smb* && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make -j $(nproc)&& \
-    make install && \
-      make rebuild_cache && \
+    cmake .. > /dev/null && \
+    make -j $(nproc) > /dev/null && \
+    make install > /dev/null && \
+      make rebuild_cache > /dev/null && \
     cd /usr/local/src && \
     cd openvas-libraries-* && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make -j $(nproc)&& \
-    make install && \
-      make rebuild_cache && \
+    cmake .. > /dev/null && \
+    make -j $(nproc) > /dev/null && \
+    make install > /dev/null && \
+      make rebuild_cache > /dev/null && \
     cd /usr/local/src && \
     cd openvas-scanner-* && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
-    make install && \
-      make rebuild_cache && \
+    cmake .. > /dev/null && \
+    make -j $(nproc) > /dev/null  && \
+    make install > /dev/null && \
+      make rebuild_cache > /dev/null && \
     cd /usr/local/src && \
     cd openvas-manager-* && \
     mkdir build && \
     cd build && \
-    cmake .. | awk 'NR == 1 || NR % 3 == 0' && \
-    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
-    make install | awk 'NR == 1 || NR % 3 == 0' && \
-      make rebuild_cache && \
+    cmake .. > /dev/null && \
+    make -j $(nproc) > /dev/null && \
+    make install > /dev/null  && \
+      make rebuild_cache > /dev/null && \
     cd /usr/local/src && \
     cd greenbone-security-assistant-* && \
     mkdir build && \
     cd build && \
-    cmake .. | awk 'NR == 1 || NR % 3 == 0' && \
-    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
-    make install | awk 'NR == 1 || NR % 3 == 0' && \
-      make rebuild_cache && \
+    cmake .. > /dev/null && \
+    make -j $(nproc) > /dev/null && \
+    make install > /dev/null  && \
+      make rebuild_cache > /dev/null && \
     cd /usr/local/src && \
     cd openvas-cli-* && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
-    make install && \
-      make rebuild_cache && \
-  /openvas/setup.sh | awk 'NR == 1 || NR % 3 == 0' 
+    cmake .. > /dev/null && \
+    make -j $(nproc) > /dev/null && \
+    make install > /dev/null && \
+      make rebuild_cache > /dev/null && \
+  /openvas/setup.sh 
 
 
 ENTRYPOINT ["/openvas/startup.sh"]
