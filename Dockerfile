@@ -108,34 +108,34 @@ wget --no-check-certificate https://wald.intevation.org/frs/download.php/2351/op
     mkdir build && \
     cd build && \
     cmake .. && \
-    make -j $(nproc)&& \
+    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
     make install && \
       make rebuild_cache && \
     cd /usr/local/src && \
     cd openvas-manager-* && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make -j $(nproc)&& \
-    make install && \
+    cmake .. | awk 'NR == 1 || NR % 3 == 0' && \
+    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
+    make install | awk 'NR == 1 || NR % 3 == 0' && \
       make rebuild_cache && \
     cd /usr/local/src && \
     cd greenbone-security-assistant-* && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make -j $(nproc)&& \
-    make install && \
+    cmake .. | awk 'NR == 1 || NR % 3 == 0' && \
+    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
+    make install | awk 'NR == 1 || NR % 3 == 0' && \
       make rebuild_cache && \
     cd /usr/local/src && \
     cd openvas-cli-* && \
     mkdir build && \
     cd build && \
     cmake .. && \
-    make -j $(nproc)&& \
+    make -j $(nproc) | awk 'NR == 1 || NR % 3 == 0' && \
     make install && \
       make rebuild_cache && \
-  /openvas/setup.sh
+  /openvas/setup.sh | awk 'NR == 1 || NR % 3 == 0' 
 
 
 ENTRYPOINT ["/openvas/startup.sh"]
