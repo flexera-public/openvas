@@ -21,7 +21,4 @@ echo "Creating Admin user..."
 openvasmd --create-user=admin --role=Admin
 echo "Setting Admin user password..."
 openvasmd --user=admin --new-password=openvas
-echo "Killing scanner process..."
-killall openvassd
-sleep 15
 echo "OpenVAS 8 Setup Complete.  Waiting for Docker to finish build..."
