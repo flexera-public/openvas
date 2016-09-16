@@ -3,8 +3,8 @@
 echo "Starting setup..."
 ldconfig
 openvas-mkcert -q
-echo "Performing NVT sync..." > /dev/null 
-openvas-nvt-sync
+echo "Performing NVT sync..." 
+openvas-nvt-sync > /dev/null
 openvassd
 openvas-mkcert-client -n -i
 echo "Rebuilding openvasmd db..."
