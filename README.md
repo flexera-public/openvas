@@ -41,7 +41,7 @@ Password: openvas
 To run bash inside the container run:
 
 ```
-docker exec -it openvas bash
+docker exec -it openvas8 bash
 ```
 
 OpenVas 8 Thanks:
