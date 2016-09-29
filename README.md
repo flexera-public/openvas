@@ -1,6 +1,5 @@
 OpenVAS 8 with RightScale crs-apps for Docker
 =============
-[![Travis CI](https://api.travis-ci.org/rightscale/openvas.svg)](https://travis-ci.org/rightscale/openvas)
 [![Docker Pulls](https://img.shields.io/docker/pulls/rightscale/openvas.svg)](https://hub.docker.com/r/rightscale/openvas/)
 [![Docker Stars](https://img.shields.io/docker/stars/rightscale/openvas.svg)](https://hub.docker.com/r/rightscale/openvas/)
 
