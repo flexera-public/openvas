@@ -134,8 +134,9 @@ wget --no-check-certificate https://wald.intevation.org/frs/download.php/2351/op
     cmake .. > /dev/null && \
     make -j $(nproc) > /dev/null && \
     make install > /dev/null && \
-      make rebuild_cache > /dev/null && \
-  /openvas/setup.sh 
+      make rebuild_cache > /dev/null
+  ADD scap-data/* /usr/local/var/lib/openvas/scap-data
+  RUN /openvas/setup.sh
 
 
 ENTRYPOINT ["/openvas/startup.sh"]
