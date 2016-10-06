@@ -7,5 +7,6 @@ before_install:
   # Force install of latest docker (Travis includes Docker APT repository but doesn't update)
   - sudo apt-get update -qq && sudo apt-get -y --force-yes -o Dpkg::Options::="--force-confnew" install $APT_DOCKER_PKG && docker -v
   - curl -O https://s3-us-west-2.amazonaws.com/openvas-scapdata/scap-data.tgz && mkdir scap-data && cd scap-data && tar xzf ../scap-data.tgz && cd ..
+  - rsync -avz rsync://feed.openvas.org/scap-data scap-data/
 script:
   - docker build .
