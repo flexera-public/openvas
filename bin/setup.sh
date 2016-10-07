@@ -9,8 +9,8 @@ openvassd
 openvas-mkcert-client -n -i
 echo "Rebuilding openvasmd db..."
 openvasmd --rebuild --progress > /dev/null 
-echo "Performing SCAP sync..."
-openvas-scapdata-sync  
+echo "Skipping SCAP sync..."
+#openvas-scapdata-sync  
 echo "Performing CERT sync..."
 openvas-certdata-sync > /dev/null 
 
